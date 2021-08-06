@@ -1,12 +1,15 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
+import com.example.demo.service.Quiz;
+import org.springframework.stereotype.Component;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
+@Component
 public class QuizImpl implements Quiz {
+
     public Scanner scan = new Scanner(System.in);
 
     @Override

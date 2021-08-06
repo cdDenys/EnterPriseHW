@@ -1,13 +1,15 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:beans="http://www.springframework.org/schema/c"
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
-           http://www.springframework.org/schema/context
-           http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="quizReader" class="com.example.demo.service.QuizReaderImpl">
-        <property name="filePath" value="C:\Users\denis\Desktop\Hillel\Enterprise\SpringHW3\src\main\java\com\example\demo\resources\questions.cvs"/>
+    <bean id="quizService" class="com.example.demo.service.impl.QuizImpl"/>
+
+    <bean id="applicant" class="com.example.demo.entity.Applicant"/>
+
+    <bean id="quizResults" class="com.example.demo.service.impl.QuizResultsImpl">
+        <constructor-arg name="applicant" ref="applicant"/>
+        <constructor-arg name="quiz" ref="quizService"/>
     </bean>
 </beans>
